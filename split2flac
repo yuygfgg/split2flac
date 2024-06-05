@@ -575,6 +575,7 @@ split_file () {
 					${METAFLAC} --remove-all-tags \
 						--set-tag="ARTIST=${TAG_PERFORMER}" \
 						--set-tag="ALBUM=${TAG_ALBUM}" \
+						--set-tag="Album Artist=${TAG_ARTIST}" \
 						--set-tag="TITLE=${TAG_TITLE}" \
 						--set-tag="TRACKNUMBER=$i" \
 						--set-tag="TRACKTOTAL=${TRACKS_NUM}" \
@@ -602,6 +603,7 @@ split_file () {
 					${VORBISCOMMENT} "${FINAL}" \
 						-t "ARTIST=${TAG_PERFORMER}" \
 						-t "ALBUM=${TAG_ALBUM}" \
+						-t "ALBUMARTIST=${TAG_ARTIST}" \
 						-t "TITLE=${TAG_TITLE}" \
 						-t "TRACKNUMBER=$i" \
 						-t "TRACKTOTAL=${TRACKS_NUM}" >/dev/null
@@ -614,6 +616,8 @@ split_file () {
 				opus)
 					${ID3TAG} --artist="${TAG_PERFORMER}" \
 						--album="${TAG_ALBUM}" \
+						--TPE2="${TAG_ARTIST}" \
+						--TPE2="${TAG_ARTIST}" \
 						--song="${TAG_TITLE}" \
 						--track="$i/${TRACKS_NUM}" \
 						"${FINAL}" >/dev/null
@@ -627,6 +631,7 @@ split_file () {
 					${MP4TAGS} "${FINAL}" \
 						-a "${TAG_PERFORMER}" \
 						-A "${TAG_ALBUM}" \
+						-R "${TAG_ARTIST}" \
 						-s "${TAG_TITLE}" \
 						-t "$i" \
 						-T "${TRACKS_NUM}" >/dev/null
