@@ -239,7 +239,7 @@ VORBISCOMMENT="vorbiscomment -R -a"
 command -v mid3v2 >/dev/null && ID3TAG="mid3v2" || ID3TAG="id3tag -2"
 MP4TAGS="mp4tags"
 GETTAG="cueprint -n 1 -i cue -t"
-VALIDATE="perl -CSD -pe 's/[^\p{L}\p{N}\p{Z}\p{P}\p{S}]//g'"
+VALIDATE="perl -CSD -pe 's/[^\p{Print}]//g'"
 
 # check & print output format
 msg_format="${cG}Output format :$cZ"
