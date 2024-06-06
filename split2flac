@@ -590,6 +590,7 @@ split_file () {
 				mp3)
 					${ID3TAG} --artist="${TAG_PERFORMER}" \
 						--album="${TAG_ALBUM}" \
+						--TPE2="${TAG_ARTIST}" \
 						--song="${TAG_TITLE}" \
 						--track="$i/${TRACKS_NUM}" \
 						"${FINAL}" >/dev/null
@@ -616,7 +617,6 @@ split_file () {
 				opus)
 					${ID3TAG} --artist="${TAG_PERFORMER}" \
 						--album="${TAG_ALBUM}" \
-						--TPE2="${TAG_ARTIST}" \
 						--TPE2="${TAG_ARTIST}" \
 						--song="${TAG_TITLE}" \
 						--track="$i/${TRACKS_NUM}" \
